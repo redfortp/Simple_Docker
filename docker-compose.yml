@@ -1,0 +1,14 @@
+services:
+
+  my_docker:
+    container_name: my_docker
+    build: .
+    user: root
+
+  nginx_proxy:
+    container_name: nginx_proxy
+    image: nginx:latest
+    ports:
+      - "80:8080"
+    volumes:
+      - "./nginx/nginx_p6.conf:/etc/nginx/nginx.conf:ro"
